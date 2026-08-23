@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  
+  --bg-app: #f4f7fb;
+  --bg-sidebar: #080f1d;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  
+  --color-blue: #2563eb;
+  --color-blue-light: #eff6ff;
+  --color-emerald: #10b981;
+  --color-emerald-light: #ecfdf5;
+  --color-amber: #f59e0b;
+  --color-amber-light: #fffbeb;
+  --color-rose: #ef4444;
+  --color-rose-light: #fef2f2;
+  --color-purple: #8b5cf6;
+  --color-purple-light: #f5f3ff;
+}
+
+.dark {
+  --bg-app: #0b1329;
+  --bg-sidebar: #070c18;
+  --bg-card: #111c35;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-light: #1e293b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Card styling matching screenshot */
+.fg-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.fg-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+}
+
+/* Semi-donut risk gauge styling */
+.risk-gauge-wrap {
+  position: relative;
+  width: 180px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Pulsing dot */
+@keyframes fgPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+.pulse-status {
+  animation: fgPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth custom scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* Custom Table Styles */
+.fg-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.fg-table th {
+  padding: 0.875rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.dark .fg-table th {
+  color: #94a3b8;
+  border-bottom-color: #1e293b;
+  background-color: #0f172a;
+}
+
+.fg-table td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.dark .fg-table td {
+  border-bottom-color: #1e293b;
+}
+
+.fg-table tbody tr:hover td {
+  background-color: #f8fafc;
+}
+
+.dark .fg-table tbody tr:hover td {
+  background-color: #1e293b/50;
+}

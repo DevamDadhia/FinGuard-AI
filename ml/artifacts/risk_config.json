@@ -1,0 +1,11 @@
+{
+    "fraud_probability_weight": 0.75,
+    "anomaly_score_weight": 0.25,
+    "thresholds": {
+        "critical": 80,
+        "high": 60,
+        "medium": 30
+    },
+    "fraud_threshold": 0.8,
+    "model_version": "finguard-xgb-v1"
+}
